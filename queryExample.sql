@@ -1,8 +1,8 @@
-Drop database Joins;
+Drop database Ejemplos;
 
-CREATE DATABASE Joins;
+CREATE DATABASE Ejemplos;
 
-USE Joins;
+USE Ejemplos;
 
 CREATE TABLE usuarios (
   ID int not null primary key auto_increment,
@@ -55,3 +55,23 @@ INSERT INTO juegousuario (ID_usuario, ID_juego) VALUES
 (4, 2),
 (4, 4),
 (4, 7);
+
+
+/*INNER JOIN*/
+SELECT usuarios.username, juegos.juegoname
+FROM usuarios
+INNER JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
+INNER JOIN juegos ON juegousuario.ID_juego = juegos.ID;
+
+/*LEFT JOIN*/
+SELECT usuarios.username, juegos.juegoname
+FROM usuarios
+LEFT JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
+LEFT JOIN juegos ON juegousuario.ID_juego = juegos.ID;
+
+/*RIGHT JOIN*/
+SELECT usuarios.username, juegos.juegoname
+FROM usuarios
+RIGHT JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
+RIGHT JOIN juegos ON juegousuario.ID_juego = juegos.ID;
+
