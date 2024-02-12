@@ -74,3 +74,20 @@ WHERE ID IN (
   WHERE ID_juego = 3
 );
 
+/* ----------------------------------- Funciones de Agregado ---------------------------------*/
+
+/*COUNT*/
+SELECT COUNT(*) FROM usuarios;
+
+/*SUM*/
+SELECT ID_usuario, SUM(DISTINCT ID_juego) FROM juegousuario GROUP BY ID_usuario;
+
+/*AVG*/
+SELECT AVG(juegos_distintos) FROM (SELECT ID_usuario, COUNT(DISTINCT ID_juego) AS juegos_distintos FROM juegousuario GROUP BY ID_usuario) AS subconsulta;
+
+/*MIN*/
+SELECT MIN(username) FROM usuarios;
+
+/*MAX*/
+SELECT MAX(username) FROM usuarios;
+
