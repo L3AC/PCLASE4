@@ -56,7 +56,7 @@ INSERT INTO juegousuario (ID_usuario, ID_juego) VALUES
 (4, 4),
 (4, 7);
 
-
+/*--------------------------------- JOINS ----------------------------------------*/
 /*INNER JOIN*/
 SELECT usuarios.username, juegos.juegoname
 FROM usuarios
@@ -74,4 +74,14 @@ SELECT usuarios.username, juegos.juegoname
 FROM usuarios
 RIGHT JOIN juegousuario ON usuarios.ID = juegousuario.ID_usuario
 RIGHT JOIN juegos ON juegousuario.ID_juego = juegos.ID;
+
+
+/* ----------------------------------- SUBCONSULTA ---------------------------------*/
+SELECT username
+FROM usuarios
+WHERE ID IN (
+  SELECT ID_usuario
+  FROM juegousuario
+  WHERE ID_juego = 3
+);
 
