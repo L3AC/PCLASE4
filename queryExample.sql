@@ -1,1 +1,1 @@
-CREATE DATABASE ejemplo();
+CREATE DATABASE Ejemplo;
